@@ -280,8 +280,7 @@
             </p>
           </div>
           <p class="mx-auto mt-6 max-w-2xl text-center text-lg leading-8 text-gray-600">
-            Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi
-            velit ut non voluptas in. Explicabo id ut laborum.
+            To cater to businesses of various sizes and industries, we will offer three main tiers:
           </p>
           <div
             class="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-y-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3"
@@ -499,31 +498,30 @@ const features = [
 ]
 const tiers = [
   {
-    name: 'Freelancer',
+    name: 'Basic Plan',
     id: 'tier-freelancer',
     href: '#',
-    priceMonthly: '$24',
-    description: 'The essentials to provide your best work for clients.',
+    priceMonthly: '$30',
+    description: 'Ideal for small businesses or startups with a low volume of customer interactions.',
     features: [
-      '5 products',
-      'Up to 1,000 subscribers',
+      '1,000 calls per month',
+      'Up to 2,000 customers',
       'Basic analytics',
-      '48-hour support response time'
+      '24/7 customer support'
     ],
     mostPopular: false
   },
   {
-    name: 'Startup',
+    name: 'Pro Plan',
     id: 'tier-startup',
     href: '#',
-    priceMonthly: '$32',
-    description: 'A plan that scales with your rapidly growing business.',
+    priceMonthly: '$90',
+    description: 'Essential for medium-sized enterprises with moderate customer interaction needs.',
     features: [
-      '25 products',
-      'Up to 10,000 subscribers',
-      'Advanced analytics',
-      '24-hour support response time',
-      'Marketing automations'
+      '5,000 calls per month',
+      'Unlimited number of customers',
+      'Sentiment analysis',
+      'Integration with CRM',
     ],
     mostPopular: true
   },
@@ -531,14 +529,13 @@ const tiers = [
     name: 'Enterprise',
     id: 'tier-enterprise',
     href: '#',
-    priceMonthly: '$48',
-    description: 'Dedicated support and infrastructure for your company.',
+    priceMonthly: '$400',
+    description: 'Tailored for large corporations with high call volumes and complex needs.',
     features: [
-      'Unlimited products',
-      'Unlimited subscribers',
-      'Advanced analytics',
-      '1-hour, dedicated support response time',
-      'Marketing automations'
+      'Unlimited calls',
+      'Customized AI solutions (industry-specific models)',
+      'API access for custom integrations',
+      'Dedicated 24/7 support team',
     ],
     mostPopular: false
   }
