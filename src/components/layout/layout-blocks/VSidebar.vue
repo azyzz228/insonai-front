@@ -43,11 +43,7 @@
             <!-- Sidebar component, swap this element with another sidebar if you like -->
             <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6 pb-2">
               <div class="flex h-16 shrink-0 items-center">
-                <img
-                  class="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                  alt="Your Company"
-                />
+                <img class="h-8 w-auto" src="@/assets/images/logo.png" alt="Your Company" />
               </div>
               <nav class="flex flex-1 flex-col">
                 <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -69,7 +65,7 @@
                     </ul>
                   </li>
                   <li>
-                    <div class="text-xs font-semibold leading-6 text-indigo-200">Your teams</div>
+                    <div class="text-xs font-semibold leading-6 text-indigo-200">Your spaces</div>
                     <ul role="list" class="-mx-2 mt-2 space-y-1">
                       <li v-for="team in teams" :key="team.name">
                         <a
@@ -103,12 +99,8 @@
   <div class="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
     <!-- Sidebar component, swap this element with another sidebar if you like -->
     <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6">
-      <div class="flex h-16 shrink-0 items-center">
-        <img
-          class="h-8 w-auto"
-          src="https://tailwindui.com/img/logos/mark.svg?color=white"
-          alt="Your Company"
-        />
+      <div class="flex h-24 shrink-0 items-center mt-[20px]">
+        <img class="h-24 w-auto" src="@/assets/images/logo-white.png" alt="Your Company" />
       </div>
       <nav class="flex flex-1 flex-col">
         <ul role="list" class="flex flex-1 flex-col gap-y-7">
@@ -130,7 +122,7 @@
             </ul>
           </li>
           <li>
-            <div class="text-xs font-semibold leading-6 text-indigo-200">Your teams</div>
+            <div class="text-xs font-semibold leading-6 text-indigo-200">Your spaces</div>
             <ul role="list" class="-mx-2 mt-2 space-y-1">
               <li v-for="team in teams" :key="team.name">
                 <a
@@ -199,9 +191,9 @@ import { ref } from 'vue'
 import { SIDEBAR_ENUM } from '@/enums/SidebarEnum'
 
 const teams = [
-  { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-  { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-  { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false }
+  { id: 1, name: 'Healthcare', href: '#', initial: 'H', current: false },
+  { id: 2, name: 'Banking', href: '#', initial: 'B', current: false },
+  { id: 3, name: 'Insurance', href: '#', initial: 'I', current: false }
 ]
 
 const sidebarOpen = ref(false)

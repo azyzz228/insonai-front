@@ -14,7 +14,7 @@ const props = defineProps<{
         v-if="!isCallStarted"
         class="absolute top-1/2 translate-x-[-50%] left-1/2 translate-y-[-50%] text-[28px] w-full text-center font-bold text-white"
       >
-        Start your first interaction with our AI!
+        Start your interaction with our AI!
       </div>
       <div v-else class="chat flex flex-col gap-[12px] mt-auto">
         <div class="message">
@@ -48,7 +48,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .chat-wrapper {
-  height: calc(100vh - 170px);
+  height: calc(100vh - 160px);
   min-height: 400px;
   transition: all 0.3s ease;
   overflow: hidden;

@@ -3,10 +3,12 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   large?: boolean
+  disabeld?: boolean
 }>()
 const className = computed(() => {
   return {
-    large: props.large
+    large: props.large,
+    disabled: props.disabeld
   }
 })
 </script>
@@ -14,6 +16,7 @@ const className = computed(() => {
 <template>
   <button
     :class="className"
+    :disabled="disabeld"
     type="button"
     class="button rounded-md bg-indigo-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
   >
