@@ -58,11 +58,15 @@ const sendAudioToServer = () => {
   reader.onloadend = () => {
     const base64Audio = (reader.result as string).split(',')[1] // Remove the "data:audio/wav;base64," part
 
+    // This is a dummy UUID from our local db, dont be fooled :))
+    const conversation_id = "26072afc-0c87-47a0-8647-f927b737799d"
+
     axios
-      .post('http://localhost:4000', { audio: base64Audio })
+      .post(`http://localhost:8000/tts/client_speech_text/${conversation_id}/`, { text: base64Audio })
       .then((_response) => {
-        result.value = _response.data.text
         isSending.value = false
+        // TODO: input is a file
+        result.value = _response.data.text
       })
       .catch((error: Error) => {
         console.error('Error sending audio:', error)
