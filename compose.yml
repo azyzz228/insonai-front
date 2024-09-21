@@ -1,20 +1,19 @@
 services:
-    server:
-      build:
+  server:
+    build:
       context: .
       dockerfile: Dockerfile
-      container_name: vue-app
-      ports:
-      - 4000:80
+    ports:
+      - 8080:80
 
-    caddy:
-        image: "caddy:2.7-alpine"
+  caddy:
+    image: 'caddy:2.7-alpine'
 
-        restart: unless-stopped
-        ports:
-            - "80:80"
-            - "443:443"
-            - "443:443/udp"
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
 
-        volumes:
-            - $PWD/caddy/Caddyfile:/etc/caddy/Caddyfile
+    volumes:
+      - $PWD/caddy/Caddyfile:/etc/caddy/Caddyfile
