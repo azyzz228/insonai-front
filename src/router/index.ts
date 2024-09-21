@@ -11,7 +11,19 @@ const router = createRouter({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: () => import('@/views/Dashboard.vue')
+      component: () => import('@/views/Dashboard.vue'),
+      children: [
+        {
+          path: '/call-page',
+          name: 'call-page',
+          component: () => import('@/views/Dashboard/CallPage.vue')
+        },
+        {
+          path: '/history-page',
+          name: 'history-page',
+          component: () => import('@/views/Dashboard/HistoryPage.vue')
+        }
+      ]
     },
     {
       path: '/test',

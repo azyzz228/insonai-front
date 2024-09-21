@@ -55,7 +55,7 @@
                     <ul role="list" class="-mx-2 space-y-1">
                       <li v-for="item in SIDEBAR_ENUM" :key="item.name">
                         <a
-                          class="sidebar__link text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+                          class="link text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
                           :href="item.link"
                         >
                           <component
@@ -117,7 +117,7 @@
               <li v-for="item in SIDEBAR_ENUM" :key="item.name">
                 <router-link
                   :to="{ name: item.link }"
-                  class="sidebar__link text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+                  class="link text-indigo-200 hover:bg-indigo-700 hover:text-white', 'group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
                 >
                   <component
                     :is="item.icon"
@@ -207,10 +207,11 @@ const teams = [
 const sidebarOpen = ref(false)
 </script>
 <style scoped lang="scss">
-.sidebar {
-  &__link.router-link-exact-active {
+.link.router-link-exact-active {
+  color: white;
+  background-color: rgb(67, 56, 202);
+  svg {
     color: white;
-    background-color: rgb(67, 56, 202);
   }
 }
 </style>
