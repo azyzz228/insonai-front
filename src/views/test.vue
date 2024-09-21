@@ -5,7 +5,7 @@
     <p v-if="isRecording">Recording...</p>
     <p v-if="isSending">Sending audio...</p>
     <p v-if="result">Result: {{ result }}</p>
-    <audio ref="audioPlayer" controls v-if="audioSrc"></audio>
+    <audio ref="audioPlayer" autoplay :src="audioSrc"></audio>
   </div>
 </template>
 
