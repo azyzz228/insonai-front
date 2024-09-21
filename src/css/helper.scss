@@ -1,0 +1,55 @@
+@mixin adaptive($size) {
+  @if $size == phone {
+    @media screen and (max-width: 479px) {
+      @content;
+    }
+  } @else if $size == phone-big {
+    @media screen and (max-width: 620px) {
+      @content;
+    }
+  } @else if $size == tablet-small {
+    @media screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $size == tablet-big {
+    @media screen and (max-width: 992px) {
+      @content;
+    }
+  } @else if $size == desktop-small {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
+  } @else if $size == desktop-mid {
+    @media screen and (max-width: 1400px) {
+      @content;
+    }
+  }
+}
+
+@mixin lines($count) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $count;
+  -webkit-box-orient: vertical;
+  line-clamp: $count;
+}
+
+@mixin scrollbar() {
+  &::-webkit-scrollbar {
+    width: 2px;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.1);
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: #c4fcfd;
+  }
+}
+@mixin noScrollbar() {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+}

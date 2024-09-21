@@ -1,0 +1,94 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-weight: normal;
+  font-family: var(--font-main);
+  line-height: 1.3;
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  position: relative;
+  color: var(--text-color);
+  background: white;
+  &.no-scroll {
+    overflow: hidden !important;
+  }
+}
+
+.blur-enter-active,
+.blur-leave-active {
+  transition: all 0.5s;
+}
+.blur-enter-from,
+.blur-leave-to {
+  opacity: 0;
+  transition: all 0s;
+  filter: blur(1.5rem);
+}
+// Важно!!! Все глобальные стили записываем _* (* - любое название)
+// Важно!!! Все глобальные стили записываем _* (* - любое название)
+._container {
+  margin: 0 auto;
+  padding: 0 40px;
+  width: 100%;
+  max-width: 1200px;
+
+  @include adaptive(tablet-small) {
+    padding: 0 20px;
+  }
+}
+
+._input-visible-none {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+._ibg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+}
+._no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+._no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+._input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  &:has(.p-invalid) {
+    & > label {
+      color: var(--red);
+    }
+  }
+  & > label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  & > small {
+    font-size: 12px;
+    color: var(--red);
+  }
+}
