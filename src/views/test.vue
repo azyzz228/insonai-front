@@ -59,7 +59,7 @@ const sendAudioToServer = () => {
     const base64Audio = (reader.result as string).split(',')[1] // Remove the "data:audio/wav;base64," part
 
     // This is a dummy UUID from our local db, dont be fooled :))
-    const conversation_id = "26072afc-0c87-47a0-8647-f927b737799d"
+    const conversation_id = "d168d9e1-225d-43a6-a761-e7150142edf2"
 
     axios
       .post(`http://localhost:8000/tts/client_speech_text/${conversation_id}/`, { text: base64Audio })
