@@ -38,17 +38,16 @@
           <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
               <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Deploy to the cloud with confidence
+                Next generation call center automation
               </h1>
               <p class="mt-6 text-lg leading-8 text-gray-600">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
-                commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
+                Our advanced AI-driven system engages with your customers using natural, human-like conversations to deliver seamless and efficient customer service.
               </p>
               <div class="mt-10 flex items-center justify-center gap-x-6">
                 <a
-                  href="#"
+                  href="/dashboard"
                   class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Get started</a
+                  >Go to Demo</a
                 >
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
                   >Learn more <span aria-hidden="true">→</span></a
@@ -146,7 +145,7 @@
             class="relative rounded-full px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/10 hover:ring-gray-900/20"
           >
             <span class="hidden md:inline"
-              >Transistor saves up to $40,000 per year, per employee by working with us.</span
+              >Uzum saves up to 48,000,000 UZS per year, per employee by working with us.</span
             >
             <a href="#" class="font-semibold text-indigo-600"
               ><span class="absolute inset-0" aria-hidden="true" /> Read our case study
@@ -159,13 +158,12 @@
       <!-- Feature section -->
       <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-56 lg:px-8">
         <div class="mx-auto max-w-2xl lg:text-center">
-          <h2 class="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+          <h2 class="text-base font-semibold leading-7 text-indigo-600">Automate now</h2>
           <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to deploy your app
+            What is special about INSON AI
           </p>
           <p class="mt-6 text-lg leading-8 text-gray-600">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget
-            egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.
+            INSON AI is the next-generation call center automation tool that handles customer interactions, leads processing, feedback collection, booking confirmations, and more—all in real time.
           </p>
         </div>
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -194,7 +192,7 @@
         >
           <img
             class="absolute inset-0 h-full w-full object-cover brightness-150 saturate-0"
-            src="https://images.unsplash.com/photo-1601381718415-a05fb0a261f3?ixid=MXwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8ODl8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1216&q=80"
+            src="https://plus.unsplash.com/premium_photo-1658506646178-e4ef5810361b?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt=""
           />
           <div class="absolute inset-0 bg-gray-900/90 mix-blend-multiply" />
@@ -260,14 +258,12 @@
             <figure>
               <blockquote class="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                 <p>
-                  “Amet amet eget scelerisque tellus sit neque faucibus non eleifend. Integer eu
-                  praesent at a. Ornare arcu gravida natoque erat et cursus tortor consequat at.
-                  Vulputate gravida sociis enim nullam ultricies habitant malesuada lorem ac.”
+                  “INSON AI has completely transformed our customer service operations. What used to take hours of manual calls is now handled seamlessly by their AI. We’ve seen a 40% increase in lead conversion and our customers are more satisfied than ever. INSON AI delivers efficient, professional interactions every time. It’s like having an entire call center at your fingertips!”
                 </p>
               </blockquote>
               <figcaption class="mt-6 text-base text-white">
-                <div class="font-semibold">Judith Black</div>
-                <div class="mt-1">CEO of Tuple</div>
+                <div class="font-semibold">Olga T.</div>
+                <div class="mt-1">CEO of Gross Insurance</div>
               </figcaption>
             </figure>
           </div>
@@ -399,15 +395,14 @@
         </div>
         <div class="mx-auto max-w-2xl text-center">
           <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Boost your productivity.<br />Start using our app today.
+            Boost your company.<br />Start using our AI today.
           </h2>
           <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">
-            Incididunt sint fugiat pariatur cupidatat consectetur sit cillum anim id veniam aliqua
-            proident excepteur commodo do ea.
+            Unlock the potential of AI-driven customer service and watch your business grow.
           </p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
             <a
-              href="#"
+              href="/dashboard"
               class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >Get started</a
             >
@@ -451,9 +446,14 @@
 
 <script setup lang="ts">
 import {
+  PhoneIcon,
   ArrowPathIcon,
+  BanknotesIcon,
   CloudArrowUpIcon,
+  ClipboardDocumentCheckIcon,
   FingerPrintIcon,
+  CodeBracketSquareIcon,
+  LanguageIcon,
   LockClosedIcon
 } from '@heroicons/vue/24/outline'
 import { CheckIcon } from '@heroicons/vue/20/solid'
@@ -461,28 +461,40 @@ import VHeader from '@/components/layout/layout-blocks/VHeader.vue'
 
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Real-Time Call Automation',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon
+      'INSON AI handles entire customer calls, from greeting to resolution, ensuring consistent and effective interactions.',
+    icon: PhoneIcon
   },
   {
-    name: 'SSL certificates',
+    name: 'Lead Processing & Follow-Up',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-    icon: LockClosedIcon
+      'Capture, process, and nurture leads automatically, allowing your team to focus on closing deals.',
+    icon: BanknotesIcon
   },
   {
-    name: 'Simple queues',
+    name: 'Feedback & Quality Assurance',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
+      'Collect valuable customer feedback and perform quality assurance seamlessly.',
     icon: ArrowPathIcon
   },
   {
-    name: 'Advanced security',
+    name: 'Booking & Verification',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-    icon: FingerPrintIcon
+      'Confirm appointments and reservations through automated, personalized calls.',
+    icon: ClipboardDocumentCheckIcon
+  },
+  {
+    name: 'Integration with Your CRM',
+    description:
+      'Add INSON AI into your existing CRM and boost your customer service.',
+    icon: CodeBracketSquareIcon
+  },
+  {
+    name: 'Multi-Language Support',
+    description:
+      'Communicate with your customers in multiple languages for broader outreach.',
+    icon: LanguageIcon
   }
 ]
 const tiers = [
