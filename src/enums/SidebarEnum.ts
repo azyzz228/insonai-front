@@ -5,5 +5,5 @@ export default interface ISidebarEnum {
   icon?: any
 }
 export const SIDEBAR_ENUM: ISidebarEnum[] = [
-  { name: 'Make a call', link: 'dashboard', icon: HomeIcon }
+  { name: 'Make a call', link: 'call-page', icon: HomeIcon }
 ]

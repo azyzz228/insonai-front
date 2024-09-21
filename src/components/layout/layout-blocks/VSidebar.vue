@@ -211,6 +211,9 @@ const sidebarOpen = ref(false)
   &__link.router-link-exact-active {
     color: white;
     background-color: rgb(67, 56, 202);
+	  svg {
+		  color: white;
+	  }
   }
 }
 </style>

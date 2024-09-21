@@ -2,7 +2,9 @@
   <div class="">
     <v-sidebar />
     <main class="py-4§ lg:py-10 lg:pl-72">
-      <div class="px-4">123</div>
+      <div class="px-4">
+	      <router-view/>
+      </div>
     </main>
   </div>
 </template>
