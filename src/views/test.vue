@@ -1,43 +1,79 @@
 <template>
-  <div>test</div>
+  <div class="flex flex-col gap-6">
+    <button @click="startRecording" :disabled="isRecording">Start Recording</button>
+    <button @click="stopRecording" :disabled="!isRecording">Stop Recording</button>
+    <p v-if="isRecording">Recording...</p>
+    <p v-if="isSending">Sending audio...</p>
+    <p v-if="result">Result: {{ result }}</p>
+  </div>
 </template>
 
-<script setup lang="ts">
-let mediaRecorder: MediaRecorder
-let audioChunks = []
+<script>
+import axios from 'axios';
 
-function startRecording() {
-  navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {
-    mediaRecorder = new MediaRecorder(stream)
-    mediaRecorder.start()
+export default {
+  data() {
+    return {
+      mediaRecorder: null,
+      audioChunks: [],
+      isRecording: false,
+      isSending: false,
+      result: null
+    }
+  },
+  methods: {
+    startRecording() {
+      this.isRecording = true;
+      this.audioChunks = [];
+      
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          this.mediaRecorder = new MediaRecorder(stream);
+          this.mediaRecorder.start();
 
-    mediaRecorder.addEventListener('dataavailable', (event) => {
-      audioChunks.push(event.data)
-    })
+          this.mediaRecorder.addEventListener("dataavailable", event => {
+            this.audioChunks.push(event.data);
+          });
 
-    mediaRecorder.addEventListener('stop', () => {
-      const audioBlob = new Blob(audioChunks, { type: 'audio/wav' })
-      encodeAndSendAudio(audioBlob)
-      audioChunks = []
-    })
-  })
-}
-
-function encodeAndSendAudio(audioBlob) {
-  const reader = new FileReader()
-  reader.readAsDataURL(audioBlob)
-  // Remove the "data:audio/wav;base64," part
-  reader.onloadend = function () {
-    const base64Audio = reader.result.split(',')[1]
-    // send
-    console.log(base64Audio)
-    view.pushEvent('handle_audio', { message: base64Audio })
-  }
-}
-
-function stopRecording() {
-  if (mediaRecorder) {
-    mediaRecorder.stop()
+          this.mediaRecorder.addEventListener("stop", () => {
+            this.sendAudioToServer();
+          });
+        })
+        .catch(error => {
+          console.error("Error accessing the microphone:", error);
+          this.isRecording = false;
+        });
+    },
+    stopRecording() {
+      if (this.mediaRecorder) {
+        this.mediaRecorder.stop();
+        this.isRecording = false;
+      }
+    },
+    sendAudioToServer() {
+      this.isSending = true;
+      const audioBlob = new Blob(this.audioChunks, { type: 'audio/wav' });
+      
+      const reader = new FileReader();
+      reader.readAsDataURL(audioBlob);
+      reader.onloadend = () => {
+        const base64Audio = reader.result.split(',')[1]; // Remove the "data:audio/wav;base64," part
+        
+        axios.post('http://localhost:4000/api', { audio: base64Audio })
+          .then(_response => {
+            // let response = JSON.parse(_response.data)
+            // TODO: add incoming message to the chat. The incoming message will be 
+            // AI Agent
+            this.result = _response.data.text;
+            this.isSending = false;
+          })
+          .catch(error => {
+            console.error("Error sending audio:", error);
+            this.result = "Error sending audio";
+            this.isSending = false;
+          });
+      };
+    }
   }
 }
 </script>
