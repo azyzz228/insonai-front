@@ -41,13 +41,14 @@
                 Next generation call center automation
               </h1>
               <p class="mt-6 text-lg leading-8 text-gray-600">
-                Our advanced AI-driven system engages with your customers using natural, human-like conversations to deliver seamless and efficient customer service.
+                Our advanced AI-driven system engages with your customers using natural, human-like
+                conversations to deliver seamless and efficient customer service.
               </p>
               <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a
-                  href="/dashboard"
+                <router-link
+                  :to="{ name: 'call-page' }"
                   class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >Go to Demo</a
+                  >Go to Demo</router-link
                 >
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
                   >Learn more <span aria-hidden="true">→</span></a
@@ -59,7 +60,7 @@
                 class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4"
               >
                 <img
-                  src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
+                  src="@/assets/images/dashboard.webp"
                   alt="App screenshot"
                   width="2432"
                   height="1442"
@@ -163,7 +164,9 @@
             What is special about INSON AI
           </p>
           <p class="mt-6 text-lg leading-8 text-gray-600">
-            INSON AI is the next-generation call center automation tool that handles customer interactions, leads processing, feedback collection, booking confirmations, and more—all in real time.
+            INSON AI is the next-generation call center automation tool that handles customer
+            interactions, leads processing, feedback collection, booking confirmations, and more—all
+            in real time.
           </p>
         </div>
         <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
@@ -258,7 +261,11 @@
             <figure>
               <blockquote class="mt-6 text-lg font-semibold text-white sm:text-xl sm:leading-8">
                 <p>
-                  “INSON AI has completely transformed our customer service operations. What used to take hours of manual calls is now handled seamlessly by their AI. We’ve seen a 40% increase in lead conversion and our customers are more satisfied than ever. INSON AI delivers efficient, professional interactions every time. It’s like having an entire call center at your fingertips!”
+                  “INSON AI has completely transformed our customer service operations. What used to
+                  take hours of manual calls is now handled seamlessly by their AI. We’ve seen a 40%
+                  increase in lead conversion and our customers are more satisfied than ever. INSON
+                  AI delivers efficient, professional interactions every time. It’s like having an
+                  entire call center at your fingertips!”
                 </p>
               </blockquote>
               <figcaption class="mt-6 text-base text-white">
@@ -473,26 +480,22 @@ const features = [
   },
   {
     name: 'Feedback & Quality Assurance',
-    description:
-      'Collect valuable customer feedback and perform quality assurance seamlessly.',
+    description: 'Collect valuable customer feedback and perform quality assurance seamlessly.',
     icon: ArrowPathIcon
   },
   {
     name: 'Booking & Verification',
-    description:
-      'Confirm appointments and reservations through automated, personalized calls.',
+    description: 'Confirm appointments and reservations through automated, personalized calls.',
     icon: ClipboardDocumentCheckIcon
   },
   {
     name: 'Integration with Your CRM',
-    description:
-      'Add INSON AI into your existing CRM and boost your customer service.',
+    description: 'Add INSON AI into your existing CRM and boost your customer service.',
     icon: CodeBracketSquareIcon
   },
   {
     name: 'Multi-Language Support',
-    description:
-      'Communicate with your customers in multiple languages for broader outreach.',
+    description: 'Communicate with your customers in multiple languages for broader outreach.',
     icon: LanguageIcon
   }
 ]
@@ -502,7 +505,8 @@ const tiers = [
     id: 'tier-freelancer',
     href: '#',
     priceMonthly: '$30',
-    description: 'Ideal for small businesses or startups with a low volume of customer interactions.',
+    description:
+      'Ideal for small businesses or startups with a low volume of customer interactions.',
     features: [
       '1,000 calls per month',
       'Up to 2,000 customers',
@@ -521,7 +525,7 @@ const tiers = [
       '5,000 calls per month',
       'Unlimited number of customers',
       'Sentiment analysis',
-      'Integration with CRM',
+      'Integration with CRM'
     ],
     mostPopular: true
   },
@@ -535,7 +539,7 @@ const tiers = [
       'Unlimited calls',
       'Customized AI solutions (industry-specific models)',
       'API access for custom integrations',
-      'Dedicated 24/7 support team',
+      'Dedicated 24/7 support team'
     ],
     mostPopular: false
   }

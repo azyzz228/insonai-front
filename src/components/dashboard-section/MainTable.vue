@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--	Table	-->
-    <div class="px-4 sm:px-6 lg:px-8">
+    <div class="p-6 rounded-[12px] border border-gray-300 bg-white">
       <div class="sm:flex sm:items-center">
         <div class="sm:flex-auto">
           <h1 class="text-base font-semibold leading-6 text-gray-900">Clients</h1>

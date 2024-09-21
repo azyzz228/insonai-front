@@ -4,6 +4,7 @@
       <v-button :disabeld="isButtons === true" @click="isButtons = !isButtons" large class="w-fit">
         Start your call
       </v-button>
+      <voice-visualization :indicator="peakIndicator" v-if="indicator" />
       <div v-if="isButtons" class="flex items-center gap-[12px] justify-center pr-[20px]">
         <button
           @click="makeCall"
@@ -33,15 +34,120 @@ import VButton from '@/components/ui/VButton.vue'
 import MainChat from '@/components/dashboard-section/MainChat.vue'
 import { PhoneIcon, PhoneXMarkIcon } from '@heroicons/vue/20/solid'
 import { ref } from 'vue'
+import axios from 'axios'
+import VoiceVisualization from '@/components/dashboard-section/VoiceVisualization.vue'
 
 const isCalling = ref(false)
 const isButtons = ref(false)
+const indicator = ref(false)
+const mediaRecorder = ref<MediaRecorder | null>(null)
+const audioChunks = ref<Blob[]>([])
+const isRecording = ref<boolean>(false)
+const isSending = ref<boolean>(false)
+const result = ref<string | null>(null)
+const audioSrc = ref()
+const audioPlayer = ref()
+const peakIndicator = ref(0)
+
+const startRecording = () => {
+  isRecording.value = true
+  audioChunks.value = []
+
+  navigator.mediaDevices
+    .getUserMedia({ audio: true })
+    .then((stream: MediaStream) => {
+      // indicator
+      const context = new AudioContext()
+      const source = context.createMediaStreamSource(stream)
+      const analyser = context.createAnalyser()
+      source.connect(analyser)
+      // The array we will put sound wave data in
+      const array = new Uint8Array(analyser.fftSize)
+
+      function getPeakLevel() {
+        analyser.getByteTimeDomainData(array)
+        return array.reduce((max, current) => Math.max(max, Math.abs(current - 127)), 0) / 128
+      }
+
+      function tick() {
+        if (isRecording.value) {
+          const peak = getPeakLevel()
+          peakIndicator.value = peak * 100
+          requestAnimationFrame(tick)
+        } else {
+          peakIndicator.value = 0
+        }
+      }
+      tick()
+      // media-recorder
+      mediaRecorder.value = new MediaRecorder(stream)
+      mediaRecorder.value.start()
+
+      mediaRecorder.value.addEventListener('dataavailable', (event: BlobEvent) => {
+        audioChunks.value.push(event.data)
+      })
+
+      mediaRecorder.value.addEventListener('stop', () => {
+        sendAudioToServer()
+      })
+    })
+    .catch((error: Error) => {
+      console.error('Error accessing the microphone:', error)
+      isRecording.value = false
+    })
+}
+
+const stopRecording = () => {
+  if (mediaRecorder.value) {
+    mediaRecorder.value.stop()
+    isRecording.value = false
+  }
+}
+
+const sendAudioToServer = () => {
+  isSending.value = true
+  const audioBlob = new Blob(audioChunks.value, { type: 'audio/wav' })
+
+  const reader = new FileReader()
+  reader.readAsDataURL(audioBlob)
+  reader.onloadend = async () => {
+    const base64Audio = (reader.result as string).split(',')[1] // Remove the "data:audio/wav;base64," part
+
+    // This is a dummy UUID from our local db, don't be fooled :))
+    const conversation_id = 'd168d9e1-225d-43a6-a761-e7150142edf2'
+
+    try {
+      const response = await axios.post(
+        `http://localhost:8000/tts/client_speech_text/${conversation_id}/`,
+        { text: base64Audio },
+        {
+          responseType: 'arraybuffer'
+        }
+      )
+
+      const audioBlob = new Blob([response.data], { type: 'audio/wav' })
+
+      audioSrc.value = URL.createObjectURL(audioBlob)
+      isSending.value = false
+      if (audioPlayer.value) {
+        audioPlayer.value.load()
+      }
+      result.value = response.data.data
+    } catch (error) {
+      console.error('Error sending audio:', error)
+      isSending.value = false
+    }
+  }
+}
 const endCall = () => {
   isButtons.value = false
   isCalling.value = false
+  indicator.value = false
 }
 const makeCall = () => {
   isCalling.value = !isCalling.value
+  indicator.value = !indicator.value
+  startRecording()
 }
 </script>
 
@@ -73,6 +179,7 @@ const makeCall = () => {
     animation-delay: 0.3s;
   }
 }
+
 @keyframes pulse {
   0% {
     transform: scale(0.5);

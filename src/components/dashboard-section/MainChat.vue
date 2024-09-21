@@ -1,53 +1,88 @@
+<template>
+  <div class="relative">
+    <div
+      :class="{ active: isCallStarted }"
+      class="chat-wrapper w-full border border-gray-300 rounded-[12px] bg-gray-50 relative"
+    >
+      <transition name="blur">
+        <div
+          v-if="!isCallStarted"
+          class="absolute top-1/2 translate-x-[-50%] left-1/2 translate-y-[-50%] text-[28px] w-full text-center font-bold text-indigo-600"
+        >
+          Start your interaction with our AI!
+        </div>
+        <div v-else class="chat flex flex-col gap-[12px] mt-auto">
+          <div class="message">
+            <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+              <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </span>
+            <div class="message-item">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, laudantium.
+            </div>
+          </div>
+          <div class="message message-user">
+            <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+              <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </span>
+            <div class="message-item">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, laudantium.
+            </div>
+          </div>
+          <div class="message message-user">
+            <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+              <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </span>
+            <div class="message-item">Lorem ipsum dolor sit amet, consectetur.</div>
+          </div>
+          <div class="message">
+            <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+              <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </span>
+            <div class="message-item">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid autem fugiat
+              perspiciatis quo recusandae ullam.
+            </div>
+          </div>
+          <div class="message message-user">
+            <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+              <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                />
+              </svg>
+            </span>
+            <div class="message-item">Lorem ipsum dolor sit amet.</div>
+          </div>
+        </div>
+      </transition>
+    </div>
+    <div class="indicator"></div>
+  </div>
+</template>
 <script setup lang="ts">
 const props = defineProps<{
   isCallStarted: boolean
 }>()
 </script>
-
-<template>
-  <div
-    :class="{ active: isCallStarted }"
-    class="chat-wrapper w-full border border-gray-300 rounded-[12px] bg-gray-50 relative"
-  >
-    <transition name="blur">
-      <div
-        v-if="!isCallStarted"
-        class="absolute top-1/2 translate-x-[-50%] left-1/2 translate-y-[-50%] text-[28px] w-full text-center font-bold text-indigo-600"
-      >
-        Start your interaction with our AI!
-      </div>
-      <div v-else class="chat flex flex-col gap-[12px] mt-auto">
-        <div class="message">
-          <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
-            <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-              />
-            </svg>
-          </span>
-          <div class="message-item">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, laudantium.
-          </div>
-        </div>
-        <div class="message message-user">
-          <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
-            <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-              />
-            </svg>
-          </span>
-          <div class="message-item">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, laudantium.
-          </div>
-        </div>
-      </div>
-    </transition>
-  </div>
-</template>
-
 <style scoped lang="scss">
 .chat-wrapper {
+  position: relative;
   height: calc(100vh - 145px);
   min-height: 400px;
   transition: all 0.3s ease;
