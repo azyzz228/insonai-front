@@ -7,14 +7,14 @@ const props = defineProps<{
 <template>
   <div
     :class="{ active: isCallStarted }"
-    class="chat-wrapper w-full border border-gray-200 rounded-[12px] bg-indigo-600 relative"
+    class="chat-wrapper w-full border border-gray-300 rounded-[12px] bg-gray-50 relative"
   >
     <transition name="blur">
       <div
         v-if="!isCallStarted"
-        class="absolute top-1/2 translate-x-[-50%] left-1/2 translate-y-[-50%] text-[28px] w-full text-center font-bold text-white"
+        class="absolute top-1/2 translate-x-[-50%] left-1/2 translate-y-[-50%] text-[28px] w-full text-center font-bold text-indigo-600"
       >
-        Start your first interaction with our AI!
+        Start your interaction with our AI!
       </div>
       <div v-else class="chat flex flex-col gap-[12px] mt-auto">
         <div class="message">
@@ -48,7 +48,7 @@ const props = defineProps<{
 
 <style scoped lang="scss">
 .chat-wrapper {
-  height: calc(100vh - 170px);
+  height: calc(100vh - 145px);
   min-height: 400px;
   transition: all 0.3s ease;
   overflow: hidden;
