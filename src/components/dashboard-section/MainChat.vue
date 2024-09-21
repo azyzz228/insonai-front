@@ -18,13 +18,25 @@ const props = defineProps<{
       </div>
       <div v-else class="chat flex flex-col gap-[12px] mt-auto">
         <div class="message">
-          <div class="avatar"></div>
+          <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+            <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          </span>
           <div class="message-item">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, laudantium.
           </div>
         </div>
         <div class="message message-user">
-          <div class="avatar"></div>
+          <span class="inline-block h-10 w-10 overflow-hidden rounded-full bg-gray-100">
+            <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          </span>
           <div class="message-item">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, laudantium.
           </div>
@@ -37,6 +49,7 @@ const props = defineProps<{
 <style scoped lang="scss">
 .chat-wrapper {
   height: calc(100vh - 170px);
+  min-height: 400px;
   transition: all 0.3s ease;
   overflow: hidden;
   &.active {
