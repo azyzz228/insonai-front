@@ -41,7 +41,7 @@ import useConversationApi from '@/api/ApiConversation'
 // api
 const { createConversation } = useConversationApi()
 const result = ref<string | null>(null)
-const conversation_api = import.meta.env.CONVERSATION_API
+const llm_use_case = import.meta.env.LLM_USE_CASE_MEDICINE_UUID
 const conversation_id = ref()
 // states
 const isCalling = ref(false)
@@ -60,10 +60,10 @@ const peakIndicator = ref(0)
 // --
 const conversationPost = async () => {
   const res = await createConversation({
-    llm_use_case: conversation_api,
+    llm_use_case: llm_use_case,
     customer: null
   })
-  conversation_id.value = res.data?.conversation_id
+  conversation_id.value = res.data?.id
 }
 // --
 // start of recording
