@@ -33,22 +33,40 @@
 import VButton from '@/components/ui/VButton.vue'
 import MainChat from '@/components/dashboard-section/MainChat.vue'
 import { PhoneIcon, PhoneXMarkIcon } from '@heroicons/vue/20/solid'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import axios from 'axios'
 import VoiceVisualization from '@/components/dashboard-section/VoiceVisualization.vue'
+import useConversationApi from '@/api/ApiConversation'
 
+// api
+const { createConversation } = useConversationApi()
+const result = ref<string | null>(null)
+const llm_use_case = import.meta.env.LLM_USE_CASE_MEDICINE_UUID
+const conversation_id = ref()
+// states
 const isCalling = ref(false)
 const isButtons = ref(false)
 const indicator = ref(false)
+
+// audio
 const mediaRecorder = ref<MediaRecorder | null>(null)
 const audioChunks = ref<Blob[]>([])
 const isRecording = ref<boolean>(false)
 const isSending = ref<boolean>(false)
-const result = ref<string | null>(null)
 const audioSrc = ref()
 const audioPlayer = ref()
 const peakIndicator = ref(0)
 
+// --
+const conversationPost = async () => {
+  const res = await createConversation({
+    llm_use_case: llm_use_case,
+    customer: null
+  })
+  conversation_id.value = res.data?.id
+}
+// --
+// start of recording
 const startRecording = () => {
   isRecording.value = true
   audioChunks.value = []
@@ -96,7 +114,7 @@ const startRecording = () => {
       isRecording.value = false
     })
 }
-
+// finish the record
 const stopRecording = () => {
   if (mediaRecorder.value) {
     mediaRecorder.value.stop()
@@ -114,7 +132,6 @@ const sendAudioToServer = () => {
     const base64Audio = (reader.result as string).split(',')[1] // Remove the "data:audio/wav;base64," part
 
     // This is a dummy UUID from our local db, don't be fooled :))
-    const conversation_id = 'd168d9e1-225d-43a6-a761-e7150142edf2'
 
     try {
       const response = await axios.post(
@@ -143,12 +160,17 @@ const endCall = () => {
   isButtons.value = false
   isCalling.value = false
   indicator.value = false
+  stopRecording()
 }
 const makeCall = () => {
   isCalling.value = !isCalling.value
   indicator.value = !indicator.value
   startRecording()
 }
+
+onMounted(async () => {
+  await conversationPost()
+})
 </script>
 
 <style scoped lang="scss">
