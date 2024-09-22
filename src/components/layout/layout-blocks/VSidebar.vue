@@ -169,7 +169,7 @@
   </div>
 
   <div
-    class="sticky top-0 z-40 flex items-center gap-x-6 bg-indigo-600 px-4 py-4 shadow-sm sm:px-6 lg:hidden"
+    class="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden"
   >
     <button type="button" class="-m-2.5 p-2.5 lg:hidden" @click="sidebarOpen = true">
       <span class="sr-only">Open sidebar</span>
@@ -201,6 +201,9 @@ const teams = [
 const sidebarOpen = ref(false)
 </script>
 <style scoped lang="scss">
+.link {
+  transition: all 0.2s ease;
+}
 .link:hover {
   color: white;
   svg {

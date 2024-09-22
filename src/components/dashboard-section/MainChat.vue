@@ -1,5 +1,5 @@
 <template>
-  <div class="relative">
+  <div class="relative flex-grow">
     <div
       :class="{ active: isCallStarted }"
       class="chat-wrapper w-full border border-gray-300 rounded-[12px] bg-gray-50 relative"
@@ -83,7 +83,7 @@ const props = defineProps<{
 <style scoped lang="scss">
 .chat-wrapper {
   position: relative;
-  height: calc(100vh - 145px);
+  height: 100%;
   min-height: 400px;
   transition: all 0.3s ease;
   overflow: hidden;
