@@ -100,13 +100,13 @@
     <div
       class="flex grow flex-col gap-y-5 overflow-y-auto px-6 bg-white m-[20px] rounded-[12px] border border-gray-300"
     >
-      <div class="flex h-24 shrink-0 items-center mt-[20px]">
+      <router-link to="/" class="flex h-24 shrink-0 items-center mt-[20px]">
         <img
           class="h-24 w-auto"
           src="@/assets/images/logo-text-transparent.png"
           alt="Your Company"
         />
-      </div>
+      </router-link>
       <nav class="flex flex-1 flex-col">
         <ul role="list" class="flex flex-1 flex-col gap-y-7">
           <li>
@@ -152,7 +152,7 @@
           <li class="-mx-6 mt-auto">
             <a
               href="#"
-              class="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 hover:bg-indigo-700"
+              class="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 hover:bg-indigo-700 hover:text-white"
             >
               <img
                 class="h-8 w-8 rounded-full bg-indigo-700"
